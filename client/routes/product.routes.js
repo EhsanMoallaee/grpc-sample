@@ -5,7 +5,7 @@ const productRouter = Router();
 productRouter.get('/list', productList);
 productRouter.get('/getProduct/:id', getProduct);
 productRouter.get('/create', createProduct);
-productRouter.get('/update/:id', updateProduct);
+productRouter.get('/update', updateProduct);
 productRouter.get('/delete/:id', deleteProduct);
 
 module.exports = {

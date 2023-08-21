@@ -30,15 +30,23 @@ async function getProduct(call, callback) {
     }
 }
 
-function updateProduct(call, callback) {
-
+async function updateProduct(call, callback) {
+    try {
+        const data = call.request;
+        const id = data.id;
+        delete data.id;
+        const result = await ProductModel.findOneAndUpdate({id}, {$set: data});
+        if(result) callback(null, {status: 'Product updated successfully'});
+        callback({message: 'Failed to update product'})        
+    } catch (error) {
+        callback(error, null);
+    }
 }
 
 async function deleteProduct(call, callback) {
     try {
         const { id } = call.request;
         const result = await ProductModel.deleteOne({id});
-        console.log('delete result : ', result);
         if(result.deletedCount > 0) callback(null, {status: 'Product deleted successfully'});
         callback({message: 'Failed to delete product'})        
     } catch (error) {
