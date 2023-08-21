@@ -3,10 +3,10 @@ const { productList, createProduct, updateProduct, getProduct, deleteProduct } =
 const productRouter = Router();
 
 productRouter.get('/list', productList);
-productRouter.get('/:id', getProduct);
-productRouter.post('/create', createProduct);
-productRouter.patch('/update/:id', updateProduct);
-productRouter.delete('/delete/:id', deleteProduct);
+productRouter.get('/getProduct/:id', getProduct);
+productRouter.get('/create', createProduct);
+productRouter.get('/update/:id', updateProduct);
+productRouter.get('/delete/:id', deleteProduct);
 
 module.exports = {
     productRouter

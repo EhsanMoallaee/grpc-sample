@@ -15,11 +15,15 @@ function productList(req, res, next) {
     })
 }
 
-function getProduct(req, res, next) {
-
+function createProduct(req, res, next) {
+    const { title, price } = req.query;
+    productClient.createProduct({ title, price}, (err, response) => {
+        if(err) return res.json(err);
+        return res.json(response);
+    })
 }
 
-function createProduct(req, res, next) {
+function getProduct(req, res, next) {
 
 }
 
