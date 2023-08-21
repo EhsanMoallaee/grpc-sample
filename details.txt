@@ -1,0 +1,20 @@
+how to run services and app in terminal:
+in client folder address -> npm start dev or yarn dev
+in blog folder address -> node blog.service.js
+in product folder address -> node product.service.js
+
+How to call services/routes in browser (examples):
+(send data in query to create or update item)
+product:
+http://localhost:4000/product/create?title=product2&price=100
+http://localhost:4000/product/getProduct/1
+http://localhost:4000/product/update?id=1&title=updated&price=200
+http://localhost:4000/product/delete/1
+http://localhost:4000/product/list
+----------------------------------------------------------------------
+blog:
+http://localhost:4000/blog/create?title=blog1&text=blog-text
+http://localhost:4000/blog/getblog/1
+http://localhost:4000/blog/update?id=1&title=updated&text=updated
+http://localhost:4000/blog/delete/1
+http://localhost:4000/blog/list
