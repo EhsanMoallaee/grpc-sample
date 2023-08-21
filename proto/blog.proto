@@ -1,0 +1,31 @@
+syntax = "proto3";
+import "public.proto";
+package blogPackage;
+
+
+message Blog {
+    int32 id = 1;
+    string title = 2;
+    string text = 3;
+}
+
+message BlogID {
+    int32 id = 1;
+}
+
+message BlogList {
+    repeated Blog blogs = 1;
+}
+
+message NewBlog {
+    string title = 1;
+    string text = 2;
+}
+
+service BlogService {
+    rpc blogList (publicPackage.Empty) returns (BlogList);
+    rpc getBlog (BlogID) returns (Blog);
+    rpc createBlog (NewBlog) returns (publicPackage.Result);
+    rpc updateBlog (Blog) returns (publicPackage.Result);
+    rpc deleteBlog (BlogID) returns (publicPackage.Result);
+}
