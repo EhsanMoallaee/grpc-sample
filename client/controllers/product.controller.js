@@ -24,7 +24,11 @@ function createProduct(req, res, next) {
 }
 
 function getProduct(req, res, next) {
-
+    const { id } = req.params;
+    productClient.getProduct({id},  (err, response) => {
+        if(err) return res.json(err);
+        return res.json(response);
+    })
 }
 
 function updateProduct(req, res, next) {

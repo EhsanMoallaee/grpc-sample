@@ -20,7 +20,14 @@ async function createProduct(call, callback) {
 }
 
 async function getProduct(call, callback) {
-
+    try {
+        const { id } = call.request;
+        const product = await ProductModel.findOne({id});
+        if(!product) throw Error('Product not found')
+        callback(null, product)
+    } catch (error) {
+        callback(error, null);
+    }
 }
 
 function updateProduct(call, callback) {
