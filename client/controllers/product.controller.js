@@ -36,7 +36,11 @@ function updateProduct(req, res, next) {
 }
 
 function deleteProduct(req, res, next) {
-
+    const { id } = req.params;
+    productClient.deleteProduct({id},  (err, response) => {
+        if(err) return res.json(err);
+        return res.json(response);
+    })
 }
 
 module.exports = {
